@@ -53,15 +53,16 @@
 		"name": "Space Waves",
         "OnOtherServer": true
 	}, 
-	{
-		"url": "/files/foodstars/index.html",
-		"imageSrc": "/files/foodstars/splash.avif",
-		"name": "Food Stars.io"
-	}, 
     {
 		"url": "/files/territorialio/build/index.html",
 		"imageSrc": "/files/territorialio/splash.png",
 		"name": "Territorial.io",
+        "OnOtherServer": true
+	}, 
+	{
+		"url": "/files/n-gon/index.html",
+		"imageSrc": "/files/n-gon/splash.png",
+		"name": "n-gon",
         "OnOtherServer": true
 	}, 
 	{
