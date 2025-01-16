@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Inter&family=Open+Sans&family=Source+Sans+Pro&family=Montserrat&display=swap");
+
+body,
+html {
+  color: #fff;
+  background-color: var(--background);
+}

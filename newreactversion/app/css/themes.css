@@ -1,0 +1,164 @@
+/* 
+   The following CSS file contains custom theme variables for different themes used in a web application. 
+   Each theme is defined using the body[data-theme="theme-name"] selector, and within each theme, custom variables are defined to set the color scheme and font styles.
+
+   Example:
+   body[data-theme="theme-name"] {
+       --background: #color-code;
+       --secondary: #color-code;
+       --primary: #color-code;
+       --text: #color-code;
+       --textInverse: #color-code;
+       --font: font-name;
+   }
+*/
+
+/* 
+   The body[data-theme="default"] selector defines the default theme for the web application. 
+   It sets custom variables for background color, secondary color, primary color, text color, inverse text color, and font family.
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Inter&family=Open+Sans&family=Source+Sans+Pro&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+@font-face {
+  font-family: mine;
+  src: url("/mincrap.otf");
+
+}
+@font-face {
+  font-family: Jetbrains Mono;
+  src: url("/JetBrainsMono-Regular.ttf");
+
+}
+@font-face {
+  font-family: Gg Sans;
+  src: url("/GgSansReg.ttf");
+
+}
+
+body[data-theme="default"] {
+  --background: #1c1c1c;
+  --secondary: linear-gradient(to top right, rgb(115, 11, 14), rgb(10, 23, 87));
+  --primary: #fff;
+  --scroll: rgba(254, 25, 30, 0.9);
+  --text: white;
+  --textInverse: white;
+  --font: var(--bs-body-font-family);
+  --footerLine: #fff;
+}
+
+body[data-theme="default"] .fixed-nav-bar-right > a {
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+body[data-theme="default"] #sidebar {
+  background: #222 !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+body[data-theme="winter"] {
+  --background: #fff;
+  --secondary: #9d9d9d75;
+  --primary: #000;
+  --text: black;
+  --textInverse: #fff;
+  --font: Roboto;
+  --footerLine: #4C5765;
+}
+
+
+* {
+  font-family: inherit;
+}
+
+.fixed-nav-bar-right > a {
+  color: var(--text) !important;
+  background-color: var(--secondary) !important;
+}
+
+
+
+i {
+  color: var(--primary) !important;
+}
+
+body,
+p,
+h1:not(.title),
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+b,
+select,
+textarea {
+  color: var(--text);
+  font-family: var(--font);
+}
+
+body {
+  background: var(--background) !important;
+}
+
+.messageOfDayDontRead {
+  color: var(--secondary) !important;
+  font-size: 10px;
+}
+
+.context-right-menu {
+  z-index: 1000000000 !important;
+  transition: 0.7s;
+  border-radius: 10px;
+  position: absolute;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+.context-right-menu ul {
+  padding: 0px;
+  margin: 0px;
+  min-width: 150px;
+  list-style: none;
+}
+
+.context-right-menu ul li {
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+.context-right-menu ul li a {
+  transition: 0.2s;
+  text-decoration: none;
+  color: #fff;
+}
+
+.context-right-menu ul li a:hover {
+  color: rgba(255, 255, 255, 0.659);
+}
+
+.context-right-menu ul li {
+  transition: 0.7s;
+}
+
+.context-right-menu ul li:hover {
+  border-radius: 10px;
+  color: var(--text) !important;
+  background: linear-gradient(-45deg, rgb(115, 11, 14), rgb(10, 23, 87));
+}
+
+/* __________________________
+/play stuff
+__________________________ */
+
+.manicontent {
+  min-height: 100vh;
+  z-index: 1;
+  position: static;
+}

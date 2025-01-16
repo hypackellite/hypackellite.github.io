@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+#gamrscount {
+  color: #fe191e;
+  font-weight: bold;
+}
+
+.whoweare {
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 70vw;
+  flex-wrap: wrap;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+.WhatIsHypackel {
+  font-weight: bolder;
+  font-family: "Nunito", sans-serif !important;
+}
+
+@media screen and (max-width: 768px) {
+  .whoweare {
+    width: 90vw;
+  }
+}
+
+
+
+
+
+
+
+/* Waves */
+
+.hero-waves {
+  display: block;
+  width: 100%;
+  height: 150px;
+  position: relative;
+  left: 0;
+}
+
+.wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+}
+
+.wave2 use {
+  animation: move-forever2 6s linear infinite;
+  animation-delay: -2s;
+}
+
+.wave3 use {
+  animation: move-forever3 5s linear infinite;
+  animation-delay: -2s;
+}
+
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+
+#LogoSpinable {
+  pointer-events: none;
+  /* animation: App-logo-spin infinite 20s linear; */
+  animation: none;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .LogoSpinable {
+    /* animation: App-logo-spin infinite 20s linear; */
+    animation: none;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes slowBreathingPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.slow-breathing {
+  animation: slowBreathingPulse 5s ease-in-out infinite !important;
+}
+
+
+
+
+
+.scroll-arrow {
+	position: absolute;
+	left: 50%;
+	z-index: 1000;
+	margin-top: 10px;
+	transform: translateX(-20%);
+	font-size: 2rem;
+	cursor: pointer;
+	color: white;
+	animation: bounce 2s infinite;
+	transition: all 0.3s ease;
+}
+
+.bottom-arrow {
+	position: fixed;
+	bottom: 20px; /* 20px from the bottom of the viewport */
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-10px);
+	}
+	60% {
+		transform: translateY(-5px);
+	}
+}

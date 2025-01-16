@@ -1,0 +1,107 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/mauve.css";
+@import "@radix-ui/colors/violet.css";
+
+.ContextMenuTrigger {
+  display: block;
+  border: 2px white dashed;
+  color: var(--text);
+  border-radius: 4px;
+  font-size: 15px;
+  user-select: none;
+  padding: 45px 0;
+  width: 300px;
+  text-align: center;
+}
+
+.ContextMenuContent,
+.ContextMenuSubContent {
+  z-index: 10000000000 !important;
+  min-width: 220px;
+  background: var(--secondary);
+  /* background: linear-gradient(to top right, rgb(115, 11, 14), rgb(10, 23, 87)); */
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 5px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.07),
+    0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07),
+    0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07),
+    0 32px 64px rgba(0, 0, 0, 0.07);
+}
+
+.ContextMenuItem,
+.ContextMenuCheckboxItem,
+.ContextMenuRadioItem,
+.ContextMenuSubTrigger {
+  z-index: 10000000000 !important;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--text);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 5px;
+  position: relative;
+  padding-left: 25px;
+  user-select: none;
+  outline: none;
+}
+.ContextMenuSubTrigger[data-state="open"] {
+  z-index: 10000000000 !important;
+  background-color: var(--background);
+  color: var(--text);
+}
+.ContextMenuItem[data-disabled],
+.ContextMenuCheckboxItem[data-disabled],
+.ContextMenuRadioItem[data-disabled],
+.ContextMenuSubTrigger[data-disabled] {
+  z-index: 10000000000 !important;
+  color: var(--mauve-8);
+  pointer-events: "none";
+}
+.ContextMenuItem[data-highlighted],
+.ContextMenuCheckboxItem[data-highlighted],
+.ContextMenuRadioItem[data-highlighted],
+.ContextMenuSubTrigger[data-highlighted] {
+  z-index: 10000000000 !important;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.ContextMenuLabel {
+  padding-left: 25px;
+  font-size: 12px;
+  line-height: 25px;
+  color: var(--mauve-11);
+}
+
+.ContextMenuSeparator {
+  height: 1px;
+  background-color: #fff;
+  margin: 5px;
+}
+
+.ContextMenuItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RightSlot {
+  margin-left: auto;
+  padding-left: 20px;
+  color: var(--mauve-11);
+}
+[data-highlighted] > .RightSlot {
+  color: white;
+}
+[data-disabled] .RightSlot {
+  color: var(--mauve-8);
+}

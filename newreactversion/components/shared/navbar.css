@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+
+.AvatarFallback {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: var(--violet-11);
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.dropdown-link-navbar {
+  font-family: var(--font) !important;
+  font-weight: 500;
+  user-select: none;
+  border-radius: 4px;
+  border: 0 !important;
+  padding: 10px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text);
+  transition: 0.7s;
+}
+
+.dropdown-link-navbar:hover {
+  color: #a5a5a5;
+  border: 0 !important;
+}
+.link-avatar-navbar {
+  border: 0 !important;
+}
+
+@keyframes slide-down {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.slide-down {
+  animation: slide-down 0.5s ease-out forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.mobile-navbar-toggler {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 6px;
+  height: 5.6vh;
+  /* border:  green; */
+}
+
+/* rgba(255, 255, 255, 0.1) */
+
+/* .game-navbar-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-navbar-icon-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative; 
+  cursor: pointer;
+}
+
+.game-navbar-icons {
+  position: relative; 
+}
+
+.game-navbar-icon {
+  margin-left: -2vw;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.icon-default,
+.icon-hover {
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%);
+}
+
+.icon-default {
+  opacity: 1;
+}
+
+.icon-hover {
+  opacity: 0;
+}
+
+.game-navbar-text {
+  margin-left: 2rem; 
+  position: relative; 
+  z-index: 1;
+}
+
+.game-navbar-link:hover .icon-default {
+  opacity: 0;
+}
+
+.game-navbar-link:hover .icon-hover {
+  opacity: 1;
+} */
+
+.game-navbar-link {
+  width: 8vw;
+
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex; /* Ensure the link is an inline flex container */
+  align-items: center; /* Center items vertically within the link */
+}
+
+.game-navbar-icon-container {
+  margin-left: 2vw;
+  display: inline-flex;
+  align-items: center;
+  position: relative; /* Ensure positioning context for child elements */
+  cursor: pointer;
+}
+
+.game-navbar-icons {
+  position: relative; /* Container for icons to handle position */
+}
+
+.game-navbar-icon {
+  margin-left: -2vw;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.icon-default,
+.icon-hover {
+  position: absolute; /* Ensure icons overlap each other */
+  top: 50%; /* Center icons vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
+.icon-default {
+  opacity: 1;
+}
+
+.icon-hover {
+  opacity: 0;
+}
+
+.game-navbar-text {
+  margin-left: 2rem; /* Space between icon and text */
+  position: relative; /* Ensure text is above icons */
+  z-index: 1; /* Text should appear above icons */
+}
+
+.game-navbar-link:hover .icon-default {
+  opacity: 0;
+}
+
+.game-navbar-link:hover .icon-hover {
+  opacity: 1;
+}
+
+
+
+
+
+.local-badge {
+  background-color: #ff0000; /* Red background for visibility */
+  color: #ffffff; /* White text */
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: var(--font);
+  position: absolute;
+  top: 30px;
+  letter-spacing: normal;
+  left: 100%; /* Adjust as needed to position the badge correctly */
+  margin-left: 70px; /* Adjust spacing between the icon and the badge */
+  transform: translateY(-50%); /* Center the badge vertically relative to the icon */
+}
+

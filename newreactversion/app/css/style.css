@@ -1,0 +1,354 @@
+/**
+* Name: Style.css
+* Updated: Jul 24, 2024 with Bootstrap v5.3.3
+* Author: Hypackel
+*/
+
+/* __________________________
+Font Load
+__________________________ */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Inter&family=Open+Sans&family=Source+Sans+Pro&family=Montserrat&display=swap");
+@import url("https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+
+/* __________________________
+Font Define
+__________________________ */
+
+@font-face {
+  font-family: mine;
+  src: url("/assets/fonts/mincrap.otf");
+}
+
+/* __________________________
+Tailwind
+__________________________ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* __________________________
+Global Styles
+__________________________ */
+
+:root {
+  --Hypackel-blue: #000A78;
+  --Hypackel-red: #FE191E;
+  --Hypackel-red-muted: rgba(254, 25, 30, 0.6);
+}
+
+
+
+body {
+  background-color: var(--background) !important;
+}
+
+a {
+  /* color: var(--text); */
+  text-decoration: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(254, 25, 30, 0.9);
+  border: 4px solid transparent;
+  background-clip: content-box;
+  border-radius: 8px;
+}
+
+/* __________________________
+Global Styles
+__________________________ */
+
+.bgHypBlue {
+  background-color: var(--Hypackel-blue);
+}
+
+.bgHypRed {
+  background-color: var(--Hypackel-red-muted);
+}
+
+/* __________________________
+Navbar (Desktop)
+__________________________ */
+
+.fixed-nav-bar {
+  top: 0;
+  max-width: 100vw;
+  margin: auto;
+  letter-spacing: 2px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  min-height: 10vh;
+  padding: 0 25px;
+  box-sizing: border-box;
+  -webkit-backdrop-filter: var(--background-filter);
+  backdrop-filter: var(--background-filter);
+  transition: 0.35s ease;
+  border-radius: 5px;
+  /* width: fill; */
+  width: 100%;
+  /* Changed from width: fill */
+  margin-top: 15px;
+  z-index: 20;
+  position: relative;
+}
+
+body[data-theme="default"] .fixed-nav-bar {
+  background-color: transparent;
+}
+
+body:not([data-theme="default"]) .fixed-nav-bar {
+  background-color: var(--background);
+}
+
+.fixed-nav-bar .icon:hover {
+  transform: translateY(-55%) scale(1.03);
+  font-weight: 800;
+}
+
+.fixed-nav-bar .icon {
+  position: absolute;
+  float: left;
+  font-size: 30px;
+  font-family: "Exo 2", sans-serif;
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 600;
+  margin-left: 5px;
+  font-style: normal;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  height: 0.5vh;
+  width: 0.5vh;
+  top: 18%;
+}
+
+.fixed-nav-bar-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--text-primary);
+  font-weight: 600;
+  right: 2%;
+}
+
+.fixed-nav-bar-right .navbar-link {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 10px;
+  font-size: 2.5vh;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-weight: 800;
+  right: 2%;
+  font-family: "Exo 2", sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  transform: translateX(0%);
+  overflow: hidden;
+  z-index: 1;
+  /* Ensure the text content is above the pseudo-element */
+}
+
+.fixed-nav-bar-right .navbar-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary);
+  /* Assume --secondary is a linear gradient */
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  border-radius: 15px;
+  /* Match the parent border-radius */
+  z-index: -1;
+  /* Place the pseudo-element behind the text content */
+}
+
+.fixed-nav-bar-right .navbar-link:hover::before {
+  opacity: 1;
+}
+
+@media (orientation: portrait) {
+  .fixed-nav-bar-right .navbar-link {
+    margin-left: 10px;
+    font-size: 2.5vw;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 800;
+    right: 2%;
+    font-family: "Exo 2", sans-serif;
+    font-style: normal;
+    text-decoration: none;
+
+    transform: translateX(0%);
+  }
+
+  .fixed-nav-bar-right .navbar-link:hover {
+    /* background: rgba(var(--secondary) 0.5); */
+    cursor: pointer;
+    font-weight: 800;
+    /* font-family: "Exo 2", sans-serif; */
+    font-style: normal;
+    /* font-size: 3vw; */
+    /* transform: translateX(-20%); */
+  }
+}
+
+.navbar-icon {
+  color: var(--primary) !important;
+  margin-right: 5px;
+  transition: all 0.2s ease;
+}
+
+.navbar-link {
+  margin-right: 5px;
+  font-size: 3vh;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.navbar-link:hover>.settings-icon {
+  animation: spin 0.5s;
+  animation-timing-function: cubic-bezier(0, 1.04, 0.91, 0.99);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#HYimg {
+  min-width: 3.7vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  #HYimg {
+    width: 3.5vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  #HYimg {
+    width: 3.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  #HYimg {
+    width: 3vw;
+  }
+}
+
+@media (orientation: portrait) {
+  #HYimg {
+    width: 4vw;
+    padding-top: 10vh;
+    margin-bottom: 1vh;
+  }
+}
+
+/* __________________________
+Navbar (Mobile)
+__________________________ */
+
+@media only screen and (min-width: 700px) {
+  .fixed-nav-bar {
+    display: block !important;
+  }
+
+  header {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .fixed-nav-bar {
+    display: none !important;
+  }
+
+  header {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1200) {
+  .fixed-nav-bar {
+    display: block !important;
+    padding-bottom: 10px;
+  }
+
+  header {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .fixed-nav-bar {
+    display: none !important;
+  }
+
+  header {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .fixed-nav-bar {
+    display: none !important;
+  }
+
+  .header {
+    display: block;
+  }
+}
+
+/* __________________________
+Footer Buttons
+__________________________ */
+
+.footerbuttons {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.5s;
+  color: var(--text);
+}
+
+.footerbuttons:hover {
+  border-radius: 5px;
+  color: #939393;
+}
+
+/* __________________________
+Themes Defining
+__________________________ */

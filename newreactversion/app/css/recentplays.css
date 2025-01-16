@@ -1,0 +1,62 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default styling */
+.game-item {
+  min-width: 18%;
+  width: calc(100% / 2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .game-item {
+    min-width: 40%;
+    width: calc(100% / 6); /* Adjust this value as needed */
+  }
+}
+
+/* Media query for screens smaller than 576px */
+@media (max-width: 576px) {
+  .game-item {
+    min-width: 50%;
+    width: calc(100% / 4); /* Adjust this value as needed */
+  }
+}
+
+/* You can add more media queries for different screen sizes if needed */
+
+.overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
+  color: #fff;
+  position: absolute;
+  text-align: left;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.game-item:hover .overlay {
+  opacity: 1;
+}
+
+.game-item img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover; /* Ensure the image covers the entire container without stretching */
+  object-position: center; /* Center the image within the container */
+  display: block;
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 1;
+}
