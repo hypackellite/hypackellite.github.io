@@ -3,7 +3,7 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AOS from "aos";
-import { useRouter } from "next-nprogress-bar";
+import { useRouter, useSearchParams } from "next-nprogress-bar";
 import React, { useEffect, useState, useCallback, useRef } from "react";
 
 const slideshows = [
@@ -267,6 +267,20 @@ const GameSlideshow = ({ name, filterQuery }) => {
 };
 
 const GbaGamesSliders = () => {
+	const [hasSearchQuery, setHasSearchQuery] = useState(false);
+
+	useEffect(() => {
+		// Check for search query using window.location
+		const hasQuery = typeof window !== 'undefined' && 
+			new URLSearchParams(window.location.search).has('q');
+		setHasSearchQuery(hasQuery);
+	}, []);
+
+	// If there's a search query, don't show the sliders
+	if (hasSearchQuery) {
+		return null;
+	}
+
 	return (
 		<div>
 			<br />

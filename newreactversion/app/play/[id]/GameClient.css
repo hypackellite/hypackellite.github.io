@@ -89,13 +89,13 @@ border-radius: 5px;
 }
 
 /* Initially hide the overlay */
-.overlay {
+.overlay-element {
   display: none;
 }
 
 /* Show the overlay on larger screens or when zoomed out */
 @media (min-width: 1024px) { /* Adjust the breakpoint as needed */
-  .overlay {
+  .overlay-element {
     display: block;
     position: absolute;
     top: 0;
