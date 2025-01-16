@@ -19,8 +19,8 @@ const slideshows = [
 	{ name: "Strategy", filterQuery: "strategy" },
 	{ name: "Physics", filterQuery: "physics" },
 	{ name: "Horror", filterQuery: "horror" },
-	{ name: "Idle Games", filterQuery: "idle" },
-	{ name: "Pokemon Games", filterQuery: "pokemon" },
+	{ name: "Idle", filterQuery: "idle" },
+	{ name: "Pokemon", filterQuery: "pokemon" },
 	{ name: "Music", filterQuery: "music" },
 	{ name: "Hidden Row", filterQuery: "music", hidden: true },
 	// Add more slideshows here as needed
@@ -31,6 +31,9 @@ const GameSlideshow = ({ name, filterQuery }) => {
 	const gamesContainerRef = useRef(null);
 	const router = useRouter();
 	const baseURL = "";
+
+	// Add pathname watcher
+	const [currentPath, setCurrentPath] = useState("");
 
 	useEffect(() => {
 		AOS.init({ 
@@ -216,6 +219,38 @@ const GameSlideshow = ({ name, filterQuery }) => {
 			gamesContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
 		}
 	};
+
+	// Add pathname watcher
+	useEffect(() => {
+		// Update path when component mounts and when router changes
+		if (typeof window !== 'undefined') {
+			setCurrentPath(window.location.pathname);
+			
+			// Create MutationObserver to watch for URL changes
+			const observer = new MutationObserver(() => {
+				if (window.location.pathname !== currentPath) {
+					setCurrentPath(window.location.pathname);
+					// Reload games container
+					const gamesContainer = gamesContainerRef.current;
+					if (games.length > 0 && gamesContainer) {
+						gamesContainer.innerHTML = "";
+						games.forEach((game) => {
+							const gameItem = createGameItem(game);
+							gamesContainer.appendChild(gameItem);
+						});
+					}
+				}
+			});
+
+			// Watch for changes in the document title and URL
+			observer.observe(document, {
+				subtree: true,
+				childList: true
+			});
+
+			return () => observer.disconnect();
+		}
+	}, [currentPath, games, createGameItem]);
 
 	return (
 		<>
