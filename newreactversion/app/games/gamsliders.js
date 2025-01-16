@@ -3,7 +3,8 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AOS from "aos";
-import { useRouter, useSearchParams } from "next-nprogress-bar";
+import { useRouter } from "next-nprogress-bar";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState, useCallback, useRef } from "react";
 
 const slideshows = [
@@ -30,10 +31,8 @@ const GameSlideshow = ({ name, filterQuery }) => {
 	const [games, setGames] = useState([]);
 	const gamesContainerRef = useRef(null);
 	const router = useRouter();
+	const pathname = usePathname();
 	const baseURL = "";
-
-	// Add pathname watcher
-	const [currentPath, setCurrentPath] = useState("");
 
 	useEffect(() => {
 		AOS.init({ 
@@ -195,22 +194,22 @@ const GameSlideshow = ({ name, filterQuery }) => {
 				imageObserver.disconnect(); // Cleanup IntersectionObserver
 			};
 		}
-	}, [games, createGameItem]);
+	}, [games, createGameItem, pathname]);
 
 	// ___________________________________________________________________
 	// End Game Slideshow
 	// ______________________________________________________________
 
-	useEffect(() => {
-		const gamesContainer = gamesContainerRef.current;
-		if (games.length > 0 && gamesContainer) {
-			gamesContainer.innerHTML = "";
-			games.forEach((game) => {
-				const gameItem = createGameItem(game);
-				gamesContainer.appendChild(gameItem);
-			});
-		}
-	}, [games, createGameItem]);
+	// useEffect(() => {
+	// 	const gamesContainer = gamesContainerRef.current;
+	// 	if (games.length > 0 && gamesContainer) {
+	// 		gamesContainer.innerHTML = "";
+	// 		games.forEach((game) => {
+	// 			const gameItem = createGameItem(game);
+	// 			gamesContainer.appendChild(gameItem);
+	// 		});
+	// 	}
+	// }, [pathname, games, createGameItem]);
 
 	const scrollContainer = (direction) => {
 		const gamesContainer = gamesContainerRef.current;
@@ -219,38 +218,6 @@ const GameSlideshow = ({ name, filterQuery }) => {
 			gamesContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
 		}
 	};
-
-	// Add pathname watcher
-	useEffect(() => {
-		// Update path when component mounts and when router changes
-		if (typeof window !== 'undefined') {
-			setCurrentPath(window.location.pathname);
-			
-			// Create MutationObserver to watch for URL changes
-			const observer = new MutationObserver(() => {
-				if (window.location.pathname !== currentPath) {
-					setCurrentPath(window.location.pathname);
-					// Reload games container
-					const gamesContainer = gamesContainerRef.current;
-					if (games.length > 0 && gamesContainer) {
-						gamesContainer.innerHTML = "";
-						games.forEach((game) => {
-							const gameItem = createGameItem(game);
-							gamesContainer.appendChild(gameItem);
-						});
-					}
-				}
-			});
-
-			// Watch for changes in the document title and URL
-			observer.observe(document, {
-				subtree: true,
-				childList: true
-			});
-
-			return () => observer.disconnect();
-		}
-	}, [currentPath, games, createGameItem]);
 
 	return (
 		<>
