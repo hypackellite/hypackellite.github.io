@@ -58,16 +58,11 @@ const Hero = () => {
 							style={{ color: "var(--text)" }}
 							className="title font-bold text-4xl md:text-5xl"
 						>
-							Hypackel: <br />
-							Play Free, Play Epic.
+							Hypackel Lite
 						</h1>
 						<br />
 						<p className="text-base md:text-lg">
-							Get ready for non-stop entertainment with Hypackel&apos;s vast
-							collection of free online games! From timeless classics to fresh
-							new releases, our platform offers an unbeatable gaming experience
-							- all without any hidden costs or commitments. Dive in and start
-							playing now!
+							Welcome!
 						</p>
 						<div className="mt-4 flex flex-col md:flex-row justify-center md:justify-start w-full">
 							<Link

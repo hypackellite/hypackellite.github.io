@@ -117,8 +117,22 @@ const GameSlideshow = ({ name, filterQuery }) => {
 			};
 
 			const overlay = document.createElement("div");
-			overlay.classList.add("overlay");
-			const overlayContent = `<div class="overlay-content"><h1 class="text-lg font-bold">${game.name}</h1></div>`;
+			overlay.classList.add(
+				"overlay",
+				"absolute",
+				"inset-0",
+				"bg-gradient-to-t",
+				"from-black/80",
+				"to-transparent",
+				"opacity-0",
+				"transition-opacity",
+				"duration-300",
+				"ease-in-out",
+				"flex",
+				"items-end",
+				"p-4"
+			);
+			const overlayContent = `<div class="overlay-content w-full"><h1 class="text-lg font-bold">${game.name}</h1></div>`;
 			overlay.innerHTML = overlayContent;
 
 			gameItem.appendChild(gradient);

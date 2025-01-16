@@ -3,7 +3,6 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import Ebaron from "@/components/shared/Ebaron";
 import Providers from "@/components/shared/ProgressBarProvider";
-import { useEffect } from 'react';
 import "aos/dist/aos.css";
 import "@/app/games/games.css";
 import "@/app/css/globals.css";

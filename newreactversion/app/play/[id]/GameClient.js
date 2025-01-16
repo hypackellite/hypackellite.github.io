@@ -108,6 +108,27 @@ const GameClient = () => {
 		return <div>Loading...</div>;
 	}
 
+	const headerRight = (
+		<div className="header-right flex items-center">
+			<div className="b-action2">
+				<button
+					type="button"
+					onClick={toggleFullScreen}
+					style={{ color: "var(--text)" }}
+					className={`flex items-center mr-2 pr-4 pl-2 pt-2 pb-2 hover:transition-all hover:duration-200 border-2 rounded-md ${
+						showIframe 
+							? "hover:border-gray-500 border-transparent" 
+							: "border-gray-500 opacity-50 cursor-not-allowed"
+					}`}
+					disabled={!showIframe}
+				>
+					<FullscreenIcon className="b-icon" />
+					<span className="ml-2">Fullscreen</span>
+				</button>
+			</div>
+		</div>
+	);
+
 	return (
 		<>
 
@@ -123,127 +144,112 @@ const GameClient = () => {
 				<br />
 				<div className="w-full text-center flex justify-center game-wrapper">
 					<div className="w-5/6">
-						<div className="w-3/4 h-svh">
-							<div className="game-container">
-								<div className="game-content" data-id={169}>
-									<div id="allow_mobile_version" />
-									<div
-										className="game-iframe-container"
-										id="game-player"
-										ref={gamePlayerRef}
-									>
-										<div id="mobile-back-button" draggable="true">
-											<i className="bi bi-x-circle-fill" />
-										</div>
-
-										<div id="game-placeholder" style={{ position: "relative", aspectRatio: "4/3" }}>
-											<img
-												src={getImagePath(game.imageSrc)}
-												alt={game.name}
-												className="game-img"
-												style={{ 
-													width: "100%",
-													height: "100%",
-													objectFit: "cover",
-													position: "absolute",
-													top: 0,
-													left: 0
-												}}
-												onError={(e) => {
-													e.target.onerror = null;
-													e.target.src = '/image-placeholder.png';
-												}}
-											/>
-											<div 
-												style={{
-													position: "absolute",
-													top: 0,
-													left: 0,
-													right: 0,
-													bottom: 0,
-													backgroundColor: "rgba(0,0,0,0.3)",
-													zIndex: 10,
-													height: "100%"
-												}}
-											/>
-											<div
-												style={{
-													display: "flex",
-													verticalAlign: "middle",
-													justifyContent: "center",
-													position: "relative",
-													zIndex: 20,
-													height: "100%",
-													alignItems: "center"
-												}}
-											>
-												<button
-													type="button"
-													className="rounded-md text-white bg-black h-[7vh] hover:bg-neutral-800 hover:transition hover:duration-500 hover:border-[1px] hover:border-white w-[10vw]"
-													onClick={handlePlayNow}
-												>
-													Play Now
-												</button>
+						<div className="flex flex-row">
+							<div className="w-3/4">
+								<div className="game-container">
+									<div className="game-content" data-id={169}>
+										<div id="allow_mobile_version" />
+										<div
+											className="game-iframe-container"
+											id="game-player"
+											ref={gamePlayerRef}
+										>
+											<div id="mobile-back-button" draggable="true">
+												<i className="bi bi-x-circle-fill" />
 											</div>
+
+											<div id="game-placeholder" style={{ position: "relative", aspectRatio: "4/3", height: "100%" }}>
+												<img
+													src={getImagePath(game.imageSrc)}
+													alt={game.name}
+													className="game-img"
+													style={{ 
+														width: "100%",
+														height: "100%",
+														objectFit: "cover",
+														position: "absolute",
+														top: 0,
+														left: 0
+													}}
+													onError={(e) => {
+														e.target.onerror = null;
+														e.target.src = '/image-placeholder.png';
+													}}
+												/>
+												<div className="overlay"/>
+												<div
+													style={{
+														display: "flex",
+														verticalAlign: "middle",
+														justifyContent: "center",
+														position: "relative",
+														zIndex: 20,
+														height: "100%",
+														alignItems: "center"
+													}}
+												>
+													<button
+														type="button"
+														className="rounded-full text-white bg-black h-[7vh] hover:bg-white hover:text-black hover:transition hover:duration-300 hover:border-[1px] hover:border-white px-16 py-2 active:bg-gray-200 active:text-gray-800 transition duration-300"
+														onClick={handlePlayNow}
+													>
+														Play Now
+													</button>
+												</div>
+											</div>
+											{showIframe && (
+												<iframe
+													title="game"
+													src={getGameURL(game)}
+													width="100%"
+													style={{ 
+														aspectRatio: "4/3",
+														height: "100%",
+														position: "absolute",
+														top: 0,
+														left: 0
+													}}
+													className="h-dvh max-h-vh"
+													id="game-iframe-play"
+													allowFullScreen
+												/>
+											)}
 										</div>
-										{showIframe && (
-											<iframe
-												title="game"
-												src={getGameURL(game)}
-												width="100%"
-												style={{ minHeight: "600px" }}
-												className="h-dvh max-h-vh"
-												id="game-iframe-play"
-												allowFullScreen
-											/>
-										)}
 									</div>
-								</div>
-								<div className="game-info">
-									<div className="header-left">
-										<h1 id="game-title" className="single-title">
-											{game.name}
-										</h1>
-									</div>
-									<div className="header-right flex items-center">
-										<div className="b-action2">
-											<button
-												type="button"
-												onClick={toggleFullScreen}
-												style={{ color: "var(--text)" }}
-												className="flex items-center hover:border-gray-500 mr-2 pr-4 pl-2 pt-2 pb-2 hover:transition-all hover:duration-200 border-2 border-transparent rounded-md"
-											>
-												<FullscreenIcon className="b-icon" />
-												<span className="ml-2">Fullscreen</span>
-											</button>
+									<div className="game-info">
+										<div className="header-left">
+											<h1 id="game-title" className="single-title">
+												{game.name}
+											</h1>
 										</div>
+										{headerRight}
 									</div>
 								</div>
 							</div>
-						</div>
-						<div className="w-1/4 pl-4">
-							<div className="sticky top-20">
-								<AdBanner
-									dataAdFormat="auto"
-									dataFullWidthResponsive={true}
-									dataAdSlot="4398483733"
-								/>
-							</div>
-						</div>
-						<div className="w-full">
-							<div className="banner-ad-wrapper">
-								<div
-									className="banner-ad-content"
-									style={{ padding: "20px 0", textAlign: "center" }}
-								>
+							<div className="w-1/4 pl-4">
+								<div className="sticky border-[1px] border-red-500 top-20">
 									<AdBanner
 										dataAdFormat="auto"
 										dataFullWidthResponsive={true}
-										dataAdSlot="5850500894"
+										dataAdSlot="4398483733"
 									/>
 								</div>
 							</div>
 						</div>
+						<br />
+						<div className="banner-ad-wrapper">
+							<div
+								className="banner-ad-content"
+								style={{ padding: "20px 0", border: "1px solid red", textAlign: "center" }}
+							>
+								<AdBanner
+									dataAdFormat="auto"
+									dataFullWidthResponsive={true}
+									dataAdSlot="5850500894"
+								/>
+							</div>
+						</div>
+						<br />
 						<center>
 							<p>
 								Fullscreen or Game glitched? Play{" "}
@@ -253,7 +259,7 @@ const GameClient = () => {
 									}}
 									id="FullscreenGlitchUrl"
 									href={game.url}
-									className="text-primary underline"
+									className="text-primary underline text-blue-600"
 								>
 									Here
 								</Link>

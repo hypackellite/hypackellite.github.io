@@ -11,6 +11,7 @@ import CloudIcon from "@mui/icons-material/Cloud";
 import { useRouter } from "next/navigation";
 
 import "./GameList.css";
+import AdBanner from "../AdBanner";
 
 const GameList = () => {
   const [games, setGames] = useState([]);

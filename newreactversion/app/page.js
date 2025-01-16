@@ -17,9 +17,9 @@ export default function Home() {
 			<div>
       <br /><br /><br /><br /><br />
 				<Hero />
-				<AboutPage />
-				<div className="bg-gradient-to-b from-[#000A78] to-[rgba(254,25,30,0.6)] py-16" />
-				<TeamPage />
+				{/* <AboutPage /> */}
+				{/* <div className="bg-gradient-to-b from-[#000A78] to-[rgba(254,25,30,0.6)] py-16" /> */}
+				{/* <TeamPage /> */}
 			</div>
 		</>
 	);

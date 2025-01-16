@@ -87,3 +87,22 @@ border-radius: 5px;
   min-height: 100vh !important;
   max-height: 100vh !important;
 }
+
+/* Initially hide the overlay */
+.overlay {
+  display: none;
+}
+
+/* Show the overlay on larger screens or when zoomed out */
+@media (min-width: 1024px) { /* Adjust the breakpoint as needed */
+  .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+}
