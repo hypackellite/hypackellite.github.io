@@ -272,18 +272,23 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   if (!isLocalhost) {
-    console.log("scrit injection complete");
-    // Create the script element
+    console.log("script injection complete");
+    
+    // Create and inject Google Ads script
     const adsScript = document.createElement("script");
     adsScript.async = true;
     adsScript.src =
       "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7128870281959256";
     adsScript.crossOrigin = "anonymous";
-
-    // Insert the script at the beginning of the head
     document.head.prepend(adsScript);
+
+    // Create and inject the new profitablecpmrate script
+    const profitableScript = document.createElement("script");
+    profitableScript.type = "text/javascript";
+    profitableScript.src = "//pl25670344.profitablecpmrate.com/e7/17/6f/e7176ff7610330dacbc075a48b1cc2ea.js";
+    document.head.appendChild(profitableScript);
   } else {
-    console.log("scrit injection failed");
+    console.log("script injection failed");
   }
 });
 

@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  images: {
+output: 'export',
+images: {
     unoptimized: true,
-  },
-  // Add files directory to ignored patterns
-  distDir: 'out',
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+},
+pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   // Ignore files directory during build
   webpack: (config) => {
     config.module.rules.push({
