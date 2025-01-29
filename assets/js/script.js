@@ -283,10 +283,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.prepend(adsScript);
 
     // Create and inject the new profitablecpmrate script
-    const profitableScript = document.createElement("script");
-    profitableScript.type = "text/javascript";
-    profitableScript.src = "//pl25670344.profitablecpmrate.com/e7/17/6f/e7176ff7610330dacbc075a48b1cc2ea.js";
-    document.head.appendChild(profitableScript);
+    // const profitableScript = document.createElement("script");
+    // profitableScript.type = "text/javascript";
+    // profitableScript.src = "//pl25670344.profitablecpmrate.com/e7/17/6f/e7176ff7610330dacbc075a48b1cc2ea.js";
+    // document.head.appendChild(profitableScript);
   } else {
     console.log("script injection failed");
   }
