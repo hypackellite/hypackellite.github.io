@@ -282,6 +282,13 @@ document.addEventListener("DOMContentLoaded", () => {
     adsScript.crossOrigin = "anonymous";
     document.head.prepend(adsScript);
 
+    // Create and inject the new script
+    const adsnew = document.createElement("script");
+    adsnew.async = false;
+    adsnew.src = "//supportinggenericexchanged.com/bb/17/d3/bb17d3ab88079f141f02b3e11ddbb9d9.js"; // Replace with your actual script URL
+    adsnew.crossOrigin = "anonymous";
+    document.head.prepend(adsnew);
+
     // Create and inject the new profitablecpmrate script
     // const profitableScript = document.createElement("script");
     // profitableScript.type = "text/javascript";
